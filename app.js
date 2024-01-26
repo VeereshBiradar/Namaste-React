@@ -21,12 +21,7 @@
 
 const parent = React.createElement('div', {id:'parent'}, 
 React.createElement('div', {id:'child'}, [React.createElement('h1', {}, 'awesome'), React.createElement('h2', {}, 'amazing')]),
-React.createElement('div', {id:'child2'}, [React.createElement('h1', {}, 'awesome'), React.createElement('h2', {}, 'amazing')]));
-
-
-
-
-
+React.createElement('div', {id:'child2'}, [React.createElement('h1', {}, 'awesome'), React.createElement('h2', {}, 'amazing')]))
 
 
 const rootParent = ReactDOM.createRoot(document.getElementById('root'))
