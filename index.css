@@ -10,19 +10,18 @@ body {
   .header {
     display: flex;
     justify-content: space-between;
+    box-shadow: 0 15px 40px -20px rgba(40,44,63,.15);
     align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+    color: black;
   }
   
   .logo-container {
-    margin-right: 20px;
+   padding-left: 20px;
   }
   
   .logo {
     width: 80px;
-    height: 80px;
+    height: 60px;
   }
   
   .nav-items ul {
@@ -36,32 +35,31 @@ body {
     margin-right: 20px;
     font-size: 16px;
   }
-  
-  .resturant-card {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px 0;
+
+  .nav-items li:hover {
+    cursor: pointer;
+    color: orange;
   }
-  
-  .resturant-card h3 {
-    color: #333;
+  .restaurant-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
   }
-  
-  .body {
-    padding: 20px;
+
+  .restaurant-card {
+    width: 170px;
+    height: 238px;
+    padding-left: 20px;
+    box-shadow: rgba(0,0,0.1) 2px 2px 8px;
+    margin-bottom: 2rem;
   }
-  
-  .search {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 20px;
+
+  .restaurant-card > img {
+    height: 45%;
+    width: 82%;
   }
+
+
   
-  .app {
-    background-color: #f2f2f2;
-  }
+  
   
