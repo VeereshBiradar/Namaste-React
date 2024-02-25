@@ -1,13 +1,10 @@
-import { resData } from "../utils/constant";
-import { styleCard, IMAGE_CDN_URL } from "../utils/constant";
+import { IMAGE_CDN_URL } from "../utils/constant";
 
 export const RestaurantCard = ({
   cloudinaryImageId,
   name,
   avgRating,
-  cuisines,
   costForTwo,
-  deliveryTime,
 }) => {
   return (
     <div className="restaurant__card">
