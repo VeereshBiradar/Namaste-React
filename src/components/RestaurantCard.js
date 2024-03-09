@@ -14,7 +14,7 @@ export const RestaurantCard = ({
       <div className="restaurant__details">
         <div className="name">{name}</div>
         <div className="avgRating">{avgRating} stars</div>
-        <div className="cost">{costForTwo} FOR TWO</div>
+        <div className="cost">{costForTwo}</div>
       </div>
     </div>
   );
