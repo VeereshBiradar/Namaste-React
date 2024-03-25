@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Header } from "./components/Header";
 import { Body } from "./components/Body";
-import About from "./components/About";
+import { About } from "./components/About";
 import NotFound from "./components/NotFound";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ContactUS from "./components/ContactUS";
