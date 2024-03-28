@@ -7,6 +7,10 @@ import NotFound from "./components/NotFound";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ContactUS from "./components/ContactUS";
 import RestaurantMenu from "./components/RestaurantMenu";
+// import Grocery from "./components/Grocery";
+import { lazy, Suspense } from "react";
+
+const Grocery = lazy(()=>import('./components/Grocery'));
 
 const AppLayout = () => {
   return (
@@ -35,6 +39,10 @@ const appRouter = createBrowserRouter([
         element: <ContactUS/>
       },
       {
+        path: '/grocery',
+        element: <Suspense fallback={<h1>I love you</h1>}><Grocery/></Suspense>
+      },
+      {
         path:'/restaurant/:resId',
         element: <RestaurantMenu/>
       }
@@ -42,6 +50,8 @@ const appRouter = createBrowserRouter([
     errorElement: <NotFound/>
   }
 ])
+
+//when code is not available what recat need to render like while loading we can pass to fallback we can pass the JXS here
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter}/>);

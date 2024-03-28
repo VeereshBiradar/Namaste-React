@@ -42,3 +42,15 @@ Namaste React 🙂🎉
 2) Names export --> eg -> export const Header
    you have to import it in other component --> import {Header} from '/Header'
 
+# At the end you will have only one js file that's do all the things
+
+# if we have 1 js file then the size will be 2 big when we have two many components for a big application, on performance it will effects
+
+# we have to make smaller bundles of these files that process is called as Chunking (App Chunking, code splitting, dynamic bundling, lazy loading)
+
+# Import Grocery as like lazy loading, when i go to that link, only then load it's called on demand loading
+
+# lazy is function given by react, named export {}
+
+
+
