@@ -1,44 +1,31 @@
-import React from "react"
+import React from "react";
 
 class UserClass extends React.Component {
-
-    constructor(props){
-        super(props);
-        console.log(props);
-
-        this.state = {
-            count: 0,
-            count2 : 34
-        }
-        console.log("Child Constructor")
+  constructor(props) {
+    super(props);
+    this.state = {
+        userData: { name: '', location: '', avatar_url: '' }
     }
+  }
 
-    componentDidMount(){
-        console.log("Child componentDidMount()")
-      }
+  async componentDidMount() {
+    const data = await fetch('https://api.github.com/users/VeereshBiradar');
+    const res = await data.json();
 
-    render(){
+    this.setState({ userData: res })
+  }
 
-        const {name, location} = this.props;
-        const { count, count2 } = this.state;
-
-        console.log('Child render')
-        return (
-            <div className="user-card">
-                <h1>Name: {name}</h1>
-                <h2>Locaion: {location}</h2>
-                <h3>Profession: Software Engineer</h3>
-                <h4>Count: {count}, Count2: {count2}</h4>
-                <button onClick={()=>{
-                    this.setState({
-                        count: this.state.count + 1,
-                        count2: this.state.count2 + 2
-                    })
-                }}>Count Increase</button>
-            </div>
-        )
-    }
+  render() {
+    const { name, location, avatar_url } = this.state.userData;
+    
+    return (
+      <div className="user-card">
+        <img src={avatar_url} alt="veeresh_biradar" />
+        <h1>Name: {name}</h1>
+        <h2>Location: {location}</h2>
+      </div>
+    );
+  }
 }
-
 
 export default UserClass;

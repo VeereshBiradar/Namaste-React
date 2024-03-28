@@ -37,6 +37,10 @@ body {
   line-height: 16px;
 }
 
+.nav-items li a:-webkit-any-link {
+  text-decoration: none !important;
+}
+
 .nav-items li:hover {
   cursor: pointer;
   color: orange;

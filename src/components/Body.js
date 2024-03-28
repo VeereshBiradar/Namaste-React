@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { SWIGGY_API_URL } from "../utils/constant";
 import ShimmerCard from "../components/ShimmerCard";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 export const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -22,6 +23,14 @@ export const Body = () => {
   useEffect(() => {
     fetchRestaurantList();
   }, []);
+
+  const onlineStatus = useOnlineStatus();
+  if(onlineStatus === false){
+    return (
+      <h1>Looks like you're offline !! please check your internet connection</h1>
+    )
+  }
+
 
   const handleFilterTopRated = () => {
     const filteredList = listOfRestaurants.filter(
