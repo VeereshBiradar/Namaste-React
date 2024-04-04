@@ -8,15 +8,13 @@ export const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="header">
+    <div className="flex justify-between shadow-red-400">
       <div className="logo-container">
-        <img className="logo"  src={LOGO_URL} alt="Resturant Header" />
+        <img className="logo" src={LOGO_URL} alt="Resturant Header" />
       </div>
       <div className="nav-items">
-        <ul>
-          <li>
-            Online Status: {onlineStatus ? '✅' : '🔴'}
-          </li>
+        <ul className="flex p-4 m-4">
+          <li>Online Status: {onlineStatus ? "✅" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -27,11 +25,11 @@ export const Header = () => {
             <Link to="/contact">Contact US</Link>
           </li>
           <li>
-            <Link to='/grocery'>Grocery</Link>
+            <Link to="/grocery">Grocery</Link>
           </li>
           <li>Cart</li>
           <button
-            className="log-button"
+            className="px-4 py-2 bg-green-200 m-4"
             onClick={() =>
               logButton === "login" ? setlogButton("logout") : "login"
             }
