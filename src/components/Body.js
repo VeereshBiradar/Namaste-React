@@ -1,4 +1,4 @@
-import { RestaurantCard } from "./RestaurantCard";
+import { RestaurantCard, withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import { SWIGGY_API_URL } from "../utils/constant";
 import ShimmerCard from "../components/ShimmerCard";
@@ -9,6 +9,10 @@ export const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filterRestaurants, setFilterRestaurants] = useState([]);
   const [searchText, setSearchText] = useState('');
+
+  console.log(listOfRestaurants);
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
   const fetchRestaurantList = async () => {
     const fetchData = await fetch(SWIGGY_API_URL);
@@ -73,7 +77,8 @@ export const Body = () => {
         ) : (
           filterRestaurants.map((restaurant) => (
            <Link key={restaurant?.info?.id} to={'/restaurant/'+restaurant?.info?.id}>
-            <RestaurantCard {...restaurant?.info} />
+
+            {restaurant.info?.promoted ? (<RestaurantCardPromoted {...restaurant?.info}/>) : (<RestaurantCard {...restaurant?.info}/>)}
             </Link>
           ))
         )}

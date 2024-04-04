@@ -1,21 +1,20 @@
-import {useRouteError} from 'react-router-dom'
+import { useRouteError } from "react-router-dom";
 
-const color = {
-    color: 'red',
-    fontSize: '45px',
-    display: 'flex', 
-    justifyContent: 'center',
-    alignItems: 'center'
-}
+const color = { color: "red", fontSize: "45px", display: "flex", justifyContent: "center",
+  alignItems: "center",
+};
 
 const NotFound = () => {
-    const error = useRouteError();
-    console.log(error)
+  const error = useRouteError();
   return (
     <>
       {/* <p>{error.error.message}</p> */}
-      <small style={color}>Oops !!! something went wrong, please try again later !!</small>
-      <p>{error.status}: {error.statusText}</p>
+      <small style={color}>
+        Oops !!! something went wrong, please try again later !!
+      </small>
+      <p>
+        {error.status}: {error.statusText}
+      </p>
     </>
   );
 };

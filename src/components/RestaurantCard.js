@@ -1,11 +1,6 @@
 import { IMAGE_CDN_URL } from "../utils/constant";
 
-export const RestaurantCard = ({
-  cloudinaryImageId,
-  name,
-  avgRating,
-  costForTwo,
-}) => {
+export const RestaurantCard = ({cloudinaryImageId, name, avgRating, costForTwo,}) => {
   return (
     <div className="restaurant__card">
       <div className="food_image">
@@ -18,4 +13,19 @@ export const RestaurantCard = ({
       </div>
     </div>
   );
+};
+
+//Higher order component
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white m-2 p-2 rounded-lg">
+          {" "}
+          Promoted{" "}
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
