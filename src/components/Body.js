@@ -8,9 +8,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 export const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filterRestaurants, setFilterRestaurants] = useState([]);
-  const [searchText, setSearchText] = useState('');
-
-  console.log(listOfRestaurants);
+  const [searchText, setSearchText] = useState("");
 
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
@@ -29,12 +27,14 @@ export const Body = () => {
   }, []);
 
   const onlineStatus = useOnlineStatus();
-  if(onlineStatus === false){
+  
+  if (onlineStatus === false) {
     return (
-      <h1>Looks like you're offline !! please check your internet connection</h1>
-    )
+      <h1>
+        Looks like you're offline !! please check your internet connection
+      </h1>
+    );
   }
-
 
   const handleFilterTopRated = () => {
     const filteredList = listOfRestaurants.filter(
@@ -45,11 +45,10 @@ export const Body = () => {
 
   const searchValue = () => {
     const searchResults = listOfRestaurants.filter((res) =>
-        res?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())
+      res?.info?.name?.toLowerCase()?.includes(searchText.toLowerCase())
     );
     setFilterRestaurants(searchResults);
   };
-
 
   return listOfRestaurants?.length === 0 ? (
     <ShimmerCard />
@@ -72,13 +71,19 @@ export const Body = () => {
       </div>
       <br />
       <div className="restaurant__container">
-       {filterRestaurants.length === 0 ? (
+        {filterRestaurants.length === 0 ? (
           <p>No Results Found</p>
         ) : (
           filterRestaurants.map((restaurant) => (
-           <Link key={restaurant?.info?.id} to={'/restaurant/'+restaurant?.info?.id}>
-
-            {restaurant.info?.promoted ? (<RestaurantCardPromoted {...restaurant?.info}/>) : (<RestaurantCard {...restaurant?.info}/>)}
+            <Link
+              key={restaurant?.info?.id}
+              to={"/restaurant/" + restaurant?.info?.id}
+            >
+              {restaurant.info?.promoted ? (
+                <RestaurantCardPromoted {...restaurant?.info} />
+              ) : (
+                <RestaurantCard {...restaurant?.info} />
+              )}
             </Link>
           ))
         )}
