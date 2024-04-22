@@ -1,4 +1,16 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
+import { IMAGE_CDN_URL } from "../utils/constant";
+
 const ItemList = ({ items }) => {
+
+console.log(items)
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    //dispatch an action   addItem(adding here in payload)
+    dispatch(addItem(item))
+
+  }
   return (
     <>
       {items.map((item) => (
@@ -18,13 +30,19 @@ const ItemList = ({ items }) => {
             </div>
             <p className="text-xs">{item.card.info.description}</p>
           </div>
-          {/* <div className="w-3/12 p-4">
-            <img src="{}" alt="" />
-          </div> */}
+          <div className="w-3/12 p-4">
+            <div className="absolute">
+              <button className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg" 
+              onClick={()=> handleAddItem(item)}>Add</button>
+            </div>
+            <img src={IMAGE_CDN_URL + item.card.info.imageId} alt="" />
+          </div>
         </div>
       ))}
     </>
   );
 };
+
+//onclick of the add button we ahve to dispatch the action
 
 export default ItemList;

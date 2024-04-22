@@ -20,6 +20,8 @@ export const Body = () => {
         ?.restaurants;
     setListOfRestaurants(restaurants);
     setFilterRestaurants(restaurants);
+
+    console.log(restaurants);
   };
 
   useEffect(() => {
@@ -66,7 +68,7 @@ export const Body = () => {
         </div>
 
         <div className="filter__button">
-          <button onClick={handleFilterTopRated}>Top Rated Restaurants</button>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={handleFilterTopRated}>Top Rated Restaurants</button>
         </div>
       </div>
       <br />

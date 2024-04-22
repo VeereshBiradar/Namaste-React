@@ -54,3 +54,13 @@ Namaste React 🙂🎉
 
 
 
+# Redux Toolkit
+
+ - npm install @reduxjs/toolkit and react-redux
+ - Build our store
+ - Connect our store to our app
+ - Slice (CartSlice)
+ - Dispatch(action)
+ - selector
+
+
