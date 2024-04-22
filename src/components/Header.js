@@ -3,6 +3,7 @@ import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
   const [logButton, setlogButton] = useState("login");
@@ -10,8 +11,15 @@ export const Header = () => {
 
   const data = useContext(UserContext);
 
+  //Subscribing to the store using a selector  for a particular portion
+  // i want to subscribe to the items
+
+  const cartItems = useSelector((store)=> store.cart.items);
+  console.log(cartItems)
+
+
   return (
-    <div className="flex justify-between shadow-red-400">
+    <div className="flex justify-between py-10">
       <div className="logo-container">
         <img className="logo" src={LOGO_URL} alt="Resturant Header" />
       </div>
@@ -30,7 +38,9 @@ export const Header = () => {
           <li>
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>Cart</li>
+          <li className="px-4 font-bold text-xl">
+            <Link to='/cart'>Cart ({cartItems.length} items)</Link>
+          </li>
           <button
             className="px-4 py-2 bg-green-200 m-4"
             onClick={() =>
